@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaudí News - SOS al Sàhara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+        }
+        .newspaper-title {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -1px;
+        }
+        .breaking-badge {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .article-body {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .ticker {
+            background: #cc0000;
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        /* Estil per a la imatge de portada amb fons de desert */
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background-image: url('https://images.unsplash.com/photo-1509060411308-41776953282b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-overlay {
+            width: 250px;
+            height: 250px;
+            border: 8px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Diari -->
+    <header class="bg-white border-b-4 border-black py-6 shadow-md">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="newspaper-title text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-2">Gaudí Global News</h1>
+            <div class="flex justify-between items-center border-t border-b border-gray-300 py-2 mt-4 text-sm font-bold uppercase italic">
+                <span>Edició: Barcelona / Marràqueix</span>
+                <span>Divendres, 06 de Març de 2026</span>
+                <span>Preu: Un cafè amb el Felix</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ticker d'última hora -->
+    <div class="ticker">
+        <div class="ticker-content font-bold">
+            ⚠️ ÚLTIMA HORA: EL PROJECTE GAUDÍ ES QUEDA SENSE RUMB --- SOS AL SÀHARA: LA FASE 2 PENJA D'UN FIL --- DROMEDARIS S'UNEIXEN AL COMITÈ DE SEGUIMENT --- FELIX LAENCUENTRA NO RESPON ALS SENYALS DE FUM ⚠️
+        </div>
+    </div>
+
+    <!-- Contingut Principal -->
+    <main class="container mx-auto px-4 mt-8 max-w-4xl">
+        <article class="bg-white p-6 md:p-12 shadow-2xl rounded-lg">
+            
+            <span class="breaking-badge bg-red-600 text-white px-3 py-1 text-sm font-bold uppercase mb-4 inline-block">EXCLUSIVA MUNDIAL</span>
+            
+            <h2 class="newspaper-title text-4xl md:text-6xl font-bold leading-tight mb-6">
+                SOS al Sàhara i caos estructural a Barcelona: El Raid del Felix fa tremolar el Projecte Gaudí
+            </h2>
+
+            <div class="flex items-center text-gray-600 mb-8 border-b pb-4">
+                <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 flex items-center justify-center font-bold text-xl">R</div>
+                <div>
+                    <p class="font-bold">Redacció de Crisis</p>
+                    <p class="text-xs uppercase">Enviat Especial al desert</p>
+                </div>
+            </div>
+
+            <!-- Imatge Destacada amb fons de desert -->
+            <div class="mb-10">
+                <div class="hero-image-container">
+                    <!-- Aquest és el requadre on pots posar la foto del Felix -->
+                    <div class="profile-overlay">
+                         <div class="text-center p-4">
+                            <p class="text-xs font-bold text-gray-400 uppercase">Espai per a la</p>
+                            <p class="text-sm font-bold text-gray-600 uppercase tracking-widest leading-tight">Foto del Felix</p>
+                            <p class="text-[10px] mt-2 italic text-gray-400">Pots enganxar la teva foto aquí</p>
+                         </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 text-xs italic">
+                        Imatge captada per un satèl·lit espia prop de l'Erg Chebbi (Marràqueix).
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-body text-gray-800 space-y-6">
+                <p class="text-xl font-bold leading-relaxed">
+                    <span class="text-5xl font-serif float-left mr-2 leading-none">M</span>
+                    ARRÀQUEIX – El que havia de ser una setmana de desconnexió i pols s’ha convertit en una crisi internacional de proporcions èpiques. <strong>Felix Laencuentra</strong>, fins ara conegut com el líder del Projecte Gaudí i pilot temerari a estones lliures, ha estat vist per darrera vegada intentant canviar una roda d’un 4x4 amb una espàtula de cuina i un manual d’instruccions en arameu.
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 border-l-4 border-red-600 pl-4 mt-8 mb-4 uppercase">L'aventura marroquina: Entre dunes i miratges</h3>
+                <p>
+                    Segons testimonis locals, Laencuentra hauria confós una duna de l'Erg Chebbi amb un munt de runes de l’Eixample, intentant aplicar-hi protocols de seguretat d'obra civil. Fonts no confirmades asseguren que Felix ha intentat convèncer un grup de dromedaris per formar un <strong>"comitè de seguiment"</strong> i que, davant la falta de cobertura, s'està comunicant amb l'oficina mitjançant senyals de fum amb olor de gasoil cremat.
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 border-l-4 border-red-600 pl-4 mt-8 mb-4 uppercase">Projecte Gaudí: Un vaixell a la deriva</h3>
+                <p>
+                    Mentre el líder "gaudeix" de la sorra, a les oficines el panorama és desolador. L’absència de Felix ha deixat el Projecte Gaudí en un estat de paràlisi mística. Sense la seva guia, l'equip ha començat a prendre decisions basades en l’astrologia i el llançament de monedes a l'aire.
+                </p>
+
+                <blockquote class="bg-gray-50 p-8 border-l-8 border-black italic text-2xl my-8">
+                    "No sabem si estem posant maons o si estem fent castells de sorra com els que el Felix fa al Marroc", comenta un membre de l'equip que prefereix mantenir l'anonimat.
+                </blockquote>
+
+                <h3 class="text-2xl font-bold text-gray-900 border-l-4 border-red-600 pl-4 mt-8 mb-4 uppercase">La Fase 2, en perill de mort?</h3>
+                <p>
+                    La gran pregunta que sobrevola el sector és: <strong>Sobreviurà la Fase 2?</strong> Els experts asseguren que una setmana sense les directrius de Laencuentra és l'equivalent a intentar acabar la Sagrada Família amb peces de Lego. S’especula que, si no torna aviat amb un tanc ple de benzina i la ment clara, la Fase 2 podria acabar convertint-se en un concurs de paelles o, pitjor encara, en un full de càlcul infinit sense filtres.
+                </p>
+
+                <p class="font-bold text-red-700 pt-6">
+                    Des d'aquí demanem una oració (o un bon Wi-Fi) per al nostre aventurer, i esperem que el desert li retorni el seny... o almenys que torni amb prou te per a tothom.
+                </p>
+            </div>
+
+            <!-- Secció de comentaris de conya -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <h4 class="font-bold text-xl mb-4">Comentaris (3)</h4>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <p class="font-bold text-sm">Un becari preocupat:</p>
+                        <p class="text-sm">"He enviat un drom al desert amb el PDF de la Fase 2, però crec que se l'ha menjat un camell. SOS."</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <p class="font-bold text-sm">Administració:</p>
+                        <p class="text-sm">"Felix, torna ja! No trobem la clau del magatzem de post-its i el projecte està bloquejat."</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <p class="font-bold text-sm">Client Anònim:</p>
+                        <p class="text-sm text-red-600 font-bold">"Si la Fase 2 falla, la culpa és de la duna número 4!"</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="text-center py-10 text-gray-500 text-sm">
+        <p>&copy; 2026 Gaudí Global News. Cap dromedari ha estat ferit durant la redacció d'aquesta notícia.</p>
+    </footer>
+
+</body>
+</html>
