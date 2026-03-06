@@ -54,7 +54,6 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             overflow: hidden;
         }
-        /* Estil per a la foto del Felix actualitzat a PNG */
         .profile-photo {
             width: 280px;
             height: auto;
@@ -116,21 +115,36 @@
                 </div>
             </div>
 
-            <!-- Secció de la Imatge actualitzada a felix.png -->
             <div class="mb-12">
                 <div class="hero-image-container">
-                    <!-- Hem canviat l'extensió a .png -->
-                    <img src="felix.png" alt="Foto del Felix al desert" class="profile-photo" onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
+                    <!-- Script per intentar carregar el fitxer independentment de l'extensió (majúscules/minúscules) -->
+                    <img id="felix-img" src="felix.png" alt="Foto del Felix al desert" class="profile-photo" 
+                         onerror="tryAlternates(this)">
                     
-                    <!-- Fallback en cas que falli la càrrega -->
+                    <script>
+                        function tryAlternates(img) {
+                            const alternates = ['felix.PNG', 'Felix.png', 'Felix.PNG', 'felix.jpg', 'felix.JPG'];
+                            if (!img.dataset.attempt) img.dataset.attempt = 0;
+                            let attempt = parseInt(img.dataset.attempt);
+                            
+                            if (attempt < alternates.length) {
+                                img.src = alternates[attempt];
+                                img.dataset.attempt = attempt + 1;
+                            } else {
+                                img.style.display = 'none';
+                                document.getElementById('photo-fallback').style.display = 'flex';
+                            }
+                        }
+                    </script>
+                    
                     <div id="photo-fallback" class="hidden w-[250px] h-[300px] border-8 border-white bg-gray-200 flex-col items-center justify-center text-center p-4 shadow-xl z-10">
                         <p class="text-xs font-bold text-gray-400 uppercase">Imatge no trobada</p>
                         <p class="text-sm font-black text-gray-600 uppercase tracking-tighter">felix.png</p>
-                        <p class="text-[10px] italic mt-2 text-gray-500">Revisa que el nom del fitxer a GitHub sigui exactament aquest.</p>
+                        <p class="text-[10px] italic mt-2 text-gray-500">Revisa que el nom del fitxer a GitHub coincideixi exactament.</p>
                     </div>
 
                     <div class="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 text-[10px] uppercase tracking-widest font-bold">
-                        Última imatge confirmada del subjecte (Font: Arxius PNG del Projecte Gaudí).
+                        Última imatge confirmada del subjecte (Font: Arxius del Projecte Gaudí).
                     </div>
                 </div>
             </div>
