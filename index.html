@@ -42,23 +42,21 @@
         .hero-image-container {
             position: relative;
             width: 100%;
-            height: 450px;
-            background-image: url('https://images.unsplash.com/photo-1509060411308-41776953282b?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            height: auto;
+            min-height: 400px;
+            background-color: #cbd5e1;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #cbd5e1;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             overflow: hidden;
+            padding: 20px;
         }
         .profile-photo {
-            width: 280px;
+            width: 100%;
+            max-width: 600px;
             height: auto;
-            max-height: 350px;
-            object-fit: contain;
             border: 8px solid white;
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3);
             z-index: 10;
@@ -117,60 +115,44 @@
 
             <div class="mb-12">
                 <div class="hero-image-container">
-                    <!-- Script per intentar carregar el fitxer independentment de l'extensió (majúscules/minúscules) -->
+                    <!-- Referència directa al fitxer felix.png tal com surt al teu GitHub -->
                     <img id="felix-img" src="felix.png" alt="Foto del Felix al desert" class="profile-photo" 
-                         onerror="tryAlternates(this)">
+                         onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
                     
-                    <script>
-                        function tryAlternates(img) {
-                            const alternates = ['felix.PNG', 'Felix.png', 'Felix.PNG', 'felix.jpg', 'felix.JPG'];
-                            if (!img.dataset.attempt) img.dataset.attempt = 0;
-                            let attempt = parseInt(img.dataset.attempt);
-                            
-                            if (attempt < alternates.length) {
-                                img.src = alternates[attempt];
-                                img.dataset.attempt = attempt + 1;
-                            } else {
-                                img.style.display = 'none';
-                                document.getElementById('photo-fallback').style.display = 'flex';
-                            }
-                        }
-                    </script>
-                    
-                    <div id="photo-fallback" class="hidden w-[250px] h-[300px] border-8 border-white bg-gray-200 flex-col items-center justify-center text-center p-4 shadow-xl z-10">
+                    <div id="photo-fallback" class="hidden w-[280px] h-[350px] border-8 border-white bg-gray-200 flex-col items-center justify-center text-center p-4 shadow-xl z-10">
                         <p class="text-xs font-bold text-gray-400 uppercase">Imatge no trobada</p>
                         <p class="text-sm font-black text-gray-600 uppercase tracking-tighter">felix.png</p>
-                        <p class="text-[10px] italic mt-2 text-gray-500">Revisa que el nom del fitxer a GitHub coincideixi exactament.</p>
+                        <p class="text-[10px] italic mt-2 text-gray-500 text-center">Revisa que el fitxer a GitHub es digui exactament felix.png (tot minúscules).</p>
                     </div>
 
-                    <div class="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 text-[10px] uppercase tracking-widest font-bold">
-                        Última imatge confirmada del subjecte (Font: Arxius del Projecte Gaudí).
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-2 text-[10px] uppercase tracking-widest font-bold text-center">
+                        Última imatge confirmada: Felix intentant negociar amb el desert.
                     </div>
                 </div>
             </div>
 
             <div class="max-w-none text-gray-900 leading-relaxed font-light">
-                <p class="text-2xl font-bold leading-tight mb-8">
-                    <span class="text-8xl font-serif float-left mr-4 leading-[0.8] text-black">M</span>
+                <p class="text-2xl font-bold leading-tight mb-8 text-left">
+                    <span class="text-8xl font-serif float-left mr-4 leading-[0.8] text-black text-left">M</span>
                     ARRÀQUEIX – El que havia de ser una setmana de desconnexió i pols s’ha convertit en una crisi internacional de proporcions èpiques. <strong>Felix Laencuentra</strong>, fins ara conegut com el líder del Projecte Gaudí i pilot temerari a estones lliures, ha estat vist per darrera vegada intentant canviar una roda d’un 4x4 amb una espàtula de cuina i un manual d’instruccions en arameu.
                 </p>
 
-                <h3 class="text-3xl font-black text-black uppercase tracking-tighter border-b-4 border-red-700 inline-block mb-6">L'aventura marroquina: Entre dunes i miratges</h3>
-                <p class="mb-8">
+                <h3 class="text-3xl font-black text-black uppercase tracking-tighter border-b-4 border-red-700 inline-block mb-6 text-left">L'aventura marroquina: Entre dunes i miratges</h3>
+                <p class="mb-8 text-left">
                     Segons testimonis locals, Laencuentra hauria confós una duna de l'Erg Chebbi amb un munt de runes de l’Eixample, intentant aplicar-hi protocols de seguretat d'obra civil. Fonts no confirmades aseguren que Felix ha intentat convèncer un grup de dromedaris per formar un <strong>"comitè de seguiment"</strong> i que, davant la falta de cobertura, s'està comunicant amb l'oficina mitjançant senyals de fum amb olor de gasoil cremat.
                 </p>
 
-                <h3 class="text-3xl font-black text-black uppercase tracking-tighter border-b-4 border-red-700 inline-block mb-6">Projecte Gaudí: Un vaixell a la deriva</h3>
-                <p class="mb-8">
+                <h3 class="text-3xl font-black text-black uppercase tracking-tighter border-b-4 border-red-700 inline-block mb-6 text-left">Projecte Gaudí: Un vaixell a la deriva</h3>
+                <p class="mb-8 text-left">
                     Mentre el líder "gaudeix" de la sorra, a les oficines el panorama és desolador. L’absència de Felix ha deixat el Projecte Gaudí en un estat de paràlisi mística. Sense la seva guia, l'equip ha començat a prendre decisions basades en l’astrologia i el llançament de monedes a l'aire.
                 </p>
 
-                <blockquote class="bg-gray-100 p-10 border-l-[12px] border-black italic text-3xl my-12 text-black font-serif shadow-sm">
+                <blockquote class="bg-gray-100 p-10 border-l-[12px] border-black italic text-3xl my-12 text-black font-serif shadow-sm text-left">
                     "No sabem si estem posant maons o si estem fent castells de sorra com els que el Felix fa al Marroc", comenta un membre de l'equip que prefereix mantenir l'anonimat.
                 </blockquote>
 
-                <h3 class="text-3xl font-black text-black uppercase tracking-tighter border-b-4 border-red-700 inline-block mb-6 text-red-700">La Fase 2, en perill de mort?</h3>
-                <p class="mb-10 font-medium">
+                <h3 class="text-3xl font-black text-black uppercase tracking-tighter border-b-4 border-red-700 inline-block mb-6 text-red-700 text-left">La Fase 2, en perill de mort?</h3>
+                <p class="mb-10 font-medium text-left">
                     La gran pregunta que sobrevola el sector és: <strong>Sobreviurà la Fase 2?</strong> Els experts asseguren que una setmana sense les directrius de Laencuentra és l'equivalent a intentar acabar la Sagrada Família amb peces de Lego. S’especula que, si no torna aviat amb un tanc ple de benzina i la ment clara, la Fase 2 podria acabar convertint-se en un concurs de paelles o, pitjor encara, en un full de càlcul infinit sense filtres.
                 </p>
 
@@ -182,19 +164,19 @@
             </div>
 
             <section class="mt-20 pt-10 border-t-4 border-black">
-                <h4 class="font-black text-3xl mb-8 text-black uppercase tracking-tighter text-left">Bústia de Crisis (3)</h4>
+                <h4 class="font-black text-3xl mb-8 text-black uppercase tracking-tighter text-left text-left">Bústia de Crisis (3)</h4>
                 <div class="space-y-6">
                     <div class="bg-gray-50 p-6 border border-gray-200">
-                        <p class="font-black text-red-700 text-xs uppercase tracking-widest mb-2 underline">Un becari preocupat:</p>
-                        <p class="text-gray-800 italic font-medium">"He enviat un drom al desert amb el PDF de la Fase 2, però crec que se l'ha menjat un camell. SOS."</p>
+                        <p class="font-black text-red-700 text-xs uppercase tracking-widest mb-2 underline text-left">Un becari preocupat:</p>
+                        <p class="text-gray-800 italic font-medium text-left">"He enviat un drom al desert amb el PDF de la Fase 2, però crec que se l'ha menjat un camell. SOS."</p>
                     </div>
                     <div class="bg-gray-50 p-6 border border-gray-200">
-                        <p class="font-black text-red-700 text-xs uppercase tracking-widest mb-2 underline">Administració:</p>
-                        <p class="text-gray-800 italic font-medium">"Felix, torna ja! No trobem la clau del magatzem de post-its i el projecte està bloquejat."</p>
+                        <p class="font-black text-red-700 text-xs uppercase tracking-widest mb-2 underline text-left">Administració:</p>
+                        <p class="text-gray-800 italic font-medium text-left">"Felix, torna ja! No trobem la clau del magatzem de post-its i el projecte està bloquejat."</p>
                     </div>
                     <div class="bg-gray-50 p-6 border border-gray-200">
-                        <p class="font-black text-red-700 text-xs uppercase tracking-widest mb-2 underline">Client Anònim:</p>
-                        <p class="text-gray-900 font-black text-lg italic">"Si la Fase 2 falla, la culpa és de la duna número 4!"</p>
+                        <p class="font-black text-red-700 text-xs uppercase tracking-widest mb-2 underline text-left">Client Anònim:</p>
+                        <p class="text-gray-900 font-black text-lg italic text-left">"Si la Fase 2 falla, la culpa és de la duna número 4!"</p>
                     </div>
                 </div>
             </section>
